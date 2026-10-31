@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photostack"
+version = "0.1.0"
+description = "Deterministic command-line tools for orientation correction and layered photo compositing"
+authors = [
+    {name = "Meitham"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pluggy",
+]
+
+[project.scripts]
+photostack = "photostack:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "ruff",
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+force-single-line = false
+known-first-party = ["photostack"]

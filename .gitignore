@@ -1,0 +1,13 @@
+*.egg-info
+.python-version
+.DS_Store
+*DS_Store
+__pycache__
+*.pyc
+.pytest_cache
+.venv
+venv
+dist
+build
+.eggs
+work/
